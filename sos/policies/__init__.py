@@ -678,7 +678,7 @@ any third party.
             nstr = "sosreport-{name}{case}{date}"
             case = '.' + case if case else ''
             date = '-%Y%m%d%H%M%S'
-        elif self.name_pattern == 'friendly-time' or self.commons['cmdlineopts'].addtime:
+        elif self.name_pattern == 'friendly-time' or self.commons['cmdlineopts'].timestamp_archive:
             nstr = "sosreport-{name}{label}{case}{date}-{rand}"
             case = '-' + case if case else ''
             label = '-' + label if label else ''
