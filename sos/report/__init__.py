@@ -111,7 +111,8 @@ class SoSReport(SoSComponent):
         'add_preset': '',
         'del_preset': '',
         'encrypt_key': None,
-        'encrypt_pass': None
+        'encrypt_pass': None,
+        'addtime': None
     }
 
     def __init__(self, parser, args, cmdline):
@@ -269,6 +270,9 @@ class SoSReport(SoSComponent):
                             help="Username to authenticate to server with")
         parser.add_argument("--upload-pass", default=None,
                             help="Password to authenticate to server with")
+        parser.add_argument("--addtime", action="store_true",
+                            dest="addtime", default=False,
+                            help="add timestamp to archive filename")
 
         # Group to make add/del preset exclusive
         preset_grp = parser.add_mutually_exclusive_group()

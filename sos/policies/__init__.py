@@ -652,6 +652,7 @@ any third party.
 
         legacy - 'sosreport-tux.123456-20171224185433'
         friendly - 'sosreport-tux-mylabel-123456-2017-12-24-ezcfcop.tar.xz'
+        friendly-time - 'sosreport-tux-mylabel-123456-2017-12-24-18-01-50-ezcfcop.tar.xz'
 
         A custom name_pattern can be used by a policy provided that it
         defines name_pattern using a format() style string substitution.
@@ -677,6 +678,11 @@ any third party.
             nstr = "sosreport-{name}{case}{date}"
             case = '.' + case if case else ''
             date = '-%Y%m%d%H%M%S'
+        elif self.name_pattern == 'friendly-time' or self.commons['cmdlineopts'].addtime:
+            nstr = "sosreport-{name}{label}{case}{date}-{rand}"
+            case = '-' + case if case else ''
+            label = '-' + label if label else ''
+            date = '-%Y-%m-%d-%H-%M-%S'
         elif self.name_pattern == 'friendly':
             nstr = "sosreport-{name}{label}{case}{date}-{rand}"
             case = '-' + case if case else ''
